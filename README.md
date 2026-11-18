@@ -30,6 +30,7 @@ RUDRA-TECH/
 - Shared responsive dark navy dashboard theme across the project hub and all five project pages.
 - Mobile-first navigation, glass-effect cards, blue/cyan/violet lighting, animated hero orb, and reduced-motion support.
 - Brand accent variations for Baby With Ved, Hack With Rudra, Working With Rudra, Freelance, and Social Media.
+- Central workflow section with Plan → Build → Test → Launch stages and a six-project milestone board.
 
 ## Status
 RUDRA AI HUB has a live Vercel production deployment. Gemini chat and initial research/code-generation responses have been manually tested; specialist-agent routing and remaining agent behaviors are still being verified.
