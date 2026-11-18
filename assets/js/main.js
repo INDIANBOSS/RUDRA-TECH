@@ -93,6 +93,9 @@
   const projectSelect = document.getElementById("task-project");
   const filter = document.getElementById("task-filter");
   const count = document.getElementById("task-count");
+  const feedback = document.getElementById("task-feedback");
+  const exportButton = document.getElementById("task-export");
+  const importInput = document.getElementById("task-import");
   const storageKey = "rudra-tech-project-tasks-v1";
   let tasks = [];
   try {
@@ -153,5 +156,47 @@
   title.addEventListener("input", () => title.removeAttribute("aria-invalid"));
   title.addEventListener("keydown", e => { if (e.key === "Enter") document.getElementById("task-add").click(); });
   filter.addEventListener("change", render);
+
+  // Export/import a portable JSON backup. Imported data is validated before replacing local tasks.
+  exportButton?.addEventListener("click", () => {
+    const backup = {format:"rudra-task-backup", version:1, exportedAt:new Date().toISOString(), tasks};
+    const blob = new Blob([JSON.stringify(backup, null, 2)], {type:"application/json"});
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "rudra-project-tasks-backup.json";
+    document.body.append(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+    feedback.textContent = "Backup exported. Keep the JSON file somewhere safe.";
+  });
+
+  importInput?.addEventListener("change", async () => {
+    const file = importInput.files && importInput.files[0];
+    if (!file) return;
+    try {
+      if (file.size > 1024 * 1024) throw new Error("Backup file is too large (maximum 1 MB).");
+      const parsed = JSON.parse(await file.text());
+      if (!parsed || parsed.format !== "rudra-task-backup" || parsed.version !== 1 || !Array.isArray(parsed.tasks)) {
+        throw new Error("This file is not a supported RUDRA task backup.");
+      }
+      const valid = parsed.tasks.every(t =>
+        t && typeof t.id === "string" && typeof t.title === "string" && t.title.length <= 120 &&
+        typeof t.project === "string" && ["RUDRA AI HUB","Hack With Rudra","Working With Rudra","Baby With Ved","Freelance Work","Social Media Management"].includes(t.project) &&
+        typeof t.done === "boolean"
+      );
+      if (!valid || parsed.tasks.length > 500) throw new Error("Backup contains invalid task data.");
+      if (!window.confirm("Import " + parsed.tasks.length + " tasks? This replaces the tasks currently saved in this browser.")) return;
+      tasks = parsed.tasks;
+      save();
+      render();
+      feedback.textContent = "Backup imported successfully.";
+    } catch (error) {
+      feedback.textContent = error && error.message ? error.message : "Could not import this backup.";
+    } finally {
+      importInput.value = "";
+    }
+  });
   render();
 })();
