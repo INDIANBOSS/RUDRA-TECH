@@ -78,3 +78,25 @@ body[data-project="social"]{--cyan:#f0abfc;--blue:#818cf8;--violet:#c084fc;--glo
 .status-planned{color:#b8c5df;border-color:#b8c5df33;background:#b8c5df0d}
 @media(max-width:900px){.workflow-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.workflow-row{grid-template-columns:minmax(130px,1fr) auto}.workflow-row p{grid-column:1/-1;margin-top:-8px}}
 @media(max-width:520px){.workflow-steps{grid-template-columns:1fr 1fr;gap:10px}.workflow-step{padding:15px;min-height:180px}.workflow-board{padding:15px}.workflow-row{gap:9px}.workflow-row strong{font-size:.88rem}.workflow-status{font-size:.65rem;padding:4px 7px}.workflow-board-head{align-items:flex-start;flex-direction:column}}
+
+/* Strong mobile/tablet navigation override for narrow browser webviews */
+@media screen and (max-width:1024px){
+  .site-header{position:sticky!important;top:0!important;left:0!important;right:0!important;bottom:auto!important;width:100%!important;height:auto!important;min-height:64px!important;padding:9px 12px!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;border-right:0!important;border-bottom:1px solid var(--line)!important}
+  .brand{flex:0 0 auto!important;font-size:.78rem!important;letter-spacing:.04em!important;padding:4px!important}
+  .brand:before{width:31px!important;height:31px!important}
+  .site-header nav{display:flex!important;flex:1 1 auto!important;flex-direction:row!important;align-items:center!important;justify-content:flex-end!important;gap:3px!important;max-width:70%!important;overflow-x:auto!important;white-space:nowrap!important}
+  .site-header nav a{flex:0 0 auto!important;padding:8px 9px!important;font-size:.72rem!important;white-space:nowrap!important}
+  .site-header nav a:before{display:none!important}
+  main{margin:0!important;padding:18px 16px 44px!important;width:100%!important;max-width:none!important}
+  .hero{margin:8px 0 26px!important}
+}
+@media screen and (max-width:520px){
+  .site-header{min-height:60px!important;padding:7px 9px!important}
+  .brand{font-size:.68rem!important;gap:7px!important}
+  .brand:before{width:28px!important;height:28px!important}
+  .site-header nav{max-width:68%!important}
+  .site-header nav a{font-size:.66rem!important;padding:7px 7px!important}
+  main{padding:14px 12px 36px!important}
+  .project-grid{grid-template-columns:1fr!important}
+  .workflow-steps{grid-template-columns:1fr 1fr!important}
+}
