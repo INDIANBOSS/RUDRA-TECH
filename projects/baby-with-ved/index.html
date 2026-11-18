@@ -3,38 +3,73 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Baby With Ved — a RUDRA-TECH project.">
+  <meta name="description" content="Baby With Ved — original Hindi and English nursery rhymes, stories, and joyful learning videos.">
   <title>Baby With Ved | RUDRA-TECH</title>
   <link rel="stylesheet" href="../../assets/css/style.css">
+  <style>
+    .baby-hero { text-align: center; max-width: 1100px; margin: 0 auto; }
+    .baby-hero h1 { margin-left:auto; margin-right:auto; }
+    .baby-hero > p:not(.eyebrow) { margin-left:auto; margin-right:auto; }
+    .episode-card { display:flex; flex-direction:column; min-height:100%; }
+    .episode-tag { color:var(--accent); font-size:.75rem; font-weight:800; letter-spacing:.12em; }
+    .episode-card .button { align-self:flex-start; margin-top:auto; }
+    .lyric-preview { padding:18px; border-left:3px solid var(--accent); background:#ffffff08; border-radius:0 12px 12px 0; color:var(--muted); }
+    .notice { border:1px solid #72e0c055; background:#72e0c010; border-radius:16px; padding:18px 20px; color:var(--muted); }
+    .notice strong { color:var(--text); }
+  </style>
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="../../">RUDRA-TECH</a>
-    <nav aria-label="Main navigation"><a href="../../#projects">All projects</a><a href="../../#about">About</a></nav>
+    <nav aria-label="Main navigation"><a href="#episodes">Episodes</a><a href="#about">About</a><a href="../../#projects">All projects</a></nav>
   </header>
   <main>
-    <section class="hero project-hero">
-      <p class="eyebrow">MUSIC · STORIES · LITTLE LEARNERS</p>
-      <h1>Little songs. Big smiles.</h1>
-      <p>An original children's content project featuring playful Hindi and English nursery rhymes, stories, and learning videos.</p>
-      <a class="button" href="../../#projects">Back to project hub</a>
+    <section class="hero baby-hero">
+      <p class="eyebrow">SING · DANCE · LEARN</p>
+      <h1>Baby With Ved</h1>
+      <p>Happy little songs and stories in Hindi + English. Come sing, clap, dance, and learn with Ved!</p>
+      <a class="button" href="#episodes">Explore episodes</a>
     </section>
-    <section class="section">
-      <p class="eyebrow">WHAT'S HERE</p>
-      <h2>Baby With Ved</h2>
+    <section id="episodes" class="section">
+      <p class="eyebrow">ORIGINAL VIDEO SERIES</p>
+      <h2>Our episodes</h2>
       <div class="project-grid">
-        <article><h3>Original nursery rhymes and songs</h3><p>Project area</p></article>
-        <article><h3>Friendly stories and learning themes</h3><p>Project area</p></article>
-        <article><h3>Video episodes and channel updates</h3><p>Project area</p></article>
+        <article class="episode-card">
+          <span class="episode-tag">EPISODE 001 · MORNING SONG</span>
+          <h3>Ved's Happy Morning Song</h3>
+          <p>A cheerful start to the day with sunshine, smiles, and a playful morning routine.</p>
+          <div class="lyric-preview">“Good morning, good morning,<br>Hello sunshine, hello day!”</div>
+          <p><strong>Format:</strong> Hindi + English · 3–5 minutes</p>
+          <span class="episode-tag">PRODUCTION PAGE READY · VIDEO LINK NOT ADDED</span>
+        </article>
+        <article class="episode-card">
+          <span class="episode-tag">EPISODE 002 · RAINBOW SONG</span>
+          <h3>Little Rainbow Dancing Song</h3>
+          <p>A colourful sing-and-dance adventure with rainbow colours, movement, and joyful learning.</p>
+          <div class="lyric-preview">“Hello rainbow, hello sky,<br>वेद के संग नाचो भाई!”</div>
+          <p><strong>Format:</strong> Hindi + English · 3–5 minutes</p>
+          <span class="episode-tag">PRODUCTION PAGE READY · VIDEO LINK NOT ADDED</span>
+        </article>
       </div>
     </section>
-    <section class="section about">
-      <p class="eyebrow">UP NEXT</p>
-      <h2>Growing step by step</h2>
-      <p>Episode pages, lyrics, and video links will be added as each release is ready.</p>
+    <section class="section">
+      <p class="eyebrow">CHANNEL PROMISE</p>
+      <h2>Made for little learners</h2>
+      <div class="project-grid">
+        <article><h3>Original songs</h3><p>Fresh lyrics and melodies created for Baby With Ved.</p></article>
+        <article><h3>Friendly visuals</h3><p>Consistent original characters and colourful, child-friendly scenes.</p></article>
+        <article><h3>Learn through play</h3><p>Simple words, actions, colours, routines, and positive themes.</p></article>
+      </div>
+    </section>
+    <section id="about" class="section about">
+      <p class="eyebrow">PRODUCTION STATUS</p>
+      <h2>Next production steps</h2>
+      <div class="notice"><strong>Website episode hub is ready.</strong><br>Next: finalize character reference sheets, generate scene clips, create original music and narration, edit each episode, then add the finished video links here.</div>
+      <p>Video links will appear here only after the final videos are uploaded and published.</p>
+      <a class="button" href="../../#projects">Back to RUDRA-TECH</a>
     </section>
   </main>
-  <footer>© <span id="year"></span> RUDRA-TECH · Baby With Ved</footer>
+  <footer>© <span id="year"></span> Baby With Ved · A RUDRA-TECH project</footer>
   <script src="../../assets/js/main.js"></script>
 </body>
 </html>
