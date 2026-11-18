@@ -131,3 +131,11 @@ body[data-project="social"]{--cyan:#f0abfc;--blue:#818cf8;--violet:#c084fc;--glo
 .project-check-item span{font-size:.9rem;line-height:1.4}
 .project-check-item.is-done span{color:var(--muted);text-decoration:line-through}
 @media(max-width:700px){.project-workflow{padding:18px}.project-checklist{grid-template-columns:1fr}}
+
+/* Task backup actions */
+.task-backup{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.task-utility{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:7px 11px;border:1px solid var(--line);border-radius:9px;background:rgba(75,130,210,.1);color:var(--text);font:600 .78rem/1.2 inherit;cursor:pointer}
+.task-utility:hover{border-color:var(--cyan);color:var(--cyan)}
+.task-import input{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;clip-path:inset(50%)}
+.task-feedback{min-height:1.4em;margin:0 2px 10px;color:var(--cyan);font-size:.82rem}
+@media(max-width:700px){.task-toolbar{align-items:flex-start;flex-wrap:wrap}.task-backup{width:100%}.task-utility{flex:1}}
