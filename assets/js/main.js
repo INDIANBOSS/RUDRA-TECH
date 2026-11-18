@@ -91,6 +91,8 @@
   if (!list) return;
   const title = document.getElementById("task-title");
   const projectSelect = document.getElementById("task-project");
+  const prioritySelect = document.getElementById("task-priority");
+  const dueInput = document.getElementById("task-due");
   const filter = document.getElementById("task-filter");
   const count = document.getElementById("task-count");
   const feedback = document.getElementById("task-feedback");
@@ -131,7 +133,7 @@
       const name = document.createElement("strong");
       name.textContent = task.title;
       const meta = document.createElement("small");
-      meta.textContent = task.project;
+      meta.textContent = task.project + " · " + (task.priority || "Normal") + (task.due ? " · Due " + task.due : "");
       info.append(name, meta);
       const del = document.createElement("button");
       del.type = "button";
@@ -147,7 +149,7 @@
     const value = title.value.trim();
     if (!value) { title.focus(); title.setAttribute("aria-invalid", "true"); return; }
     title.removeAttribute("aria-invalid");
-    tasks.unshift({id: Date.now().toString(36) + Math.random().toString(36).slice(2, 7), title: value, project: projectSelect.value, done: false});
+    tasks.unshift({id: Date.now().toString(36) + Math.random().toString(36).slice(2, 7), title: value, project: projectSelect.value, priority: prioritySelect?.value || "Normal", due: dueInput?.value || "", done: false});
     title.value = "";
     save();
     render();
@@ -188,7 +190,7 @@
       );
       if (!valid || parsed.tasks.length > 500) throw new Error("Backup contains invalid task data.");
       if (!window.confirm("Import " + parsed.tasks.length + " tasks? This replaces the tasks currently saved in this browser.")) return;
-      tasks = parsed.tasks;
+      tasks = parsed.tasks.map(t => ({...t, priority:t.priority || "Normal", due:t.due || ""}));
       save();
       render();
       feedback.textContent = "Backup imported successfully.";
