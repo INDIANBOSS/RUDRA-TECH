@@ -49,3 +49,10 @@ footer{margin:45px 0 0;padding:24px 0;color:#8092b1;border-top:1px solid var(--l
 @media(max-width:760px){.site-header{inset:0 0 auto 0;width:auto;height:auto;min-height:68px;padding:10px 14px;flex-direction:row;align-items:center;gap:10px;border-right:0;border-bottom:1px solid var(--line)}.brand{font-size:.85rem;padding:5px}.brand:before{width:34px;height:34px}nav{flex-direction:row;gap:4px;overflow-x:auto;max-width:58vw}nav a{white-space:nowrap;padding:9px 10px;font-size:.78rem}nav a:before{display:none}main{margin:68px 0 0;padding:18px 15px 45px}.hero{min-height:360px;margin:8px 0 28px;padding:34px 24px;border-radius:22px}.hero:before{width:180px;height:180px;right:-25px;top:22%;opacity:.58}h1{font-size:clamp(2.4rem,11vw,4rem);max-width:100%}.section{padding:25px 0 32px}.project-grid{grid-template-columns:1fr 1fr;gap:11px}.project-card,.project-grid article{min-height:160px;padding:17px;border-radius:16px}.project-card h3{font-size:1rem}.project-card p,.project-grid article p{font-size:.87rem}.about{padding:22px}footer{margin-top:28px}}
 @media(max-width:420px){nav a{font-size:.72rem;padding:8px}.brand{letter-spacing:.04em}.project-grid{grid-template-columns:1fr}.hero{min-height:330px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* Distinct brand accents while preserving the shared RUDRA design language */
+body[data-project="baby"]{--cyan:#ff9ecb;--blue:#ff7cae;--violet:#a78bfa;--glow:rgba(255,130,190,.25)}
+body[data-project="security"]{--cyan:#63e6be;--blue:#3c91ff;--violet:#7c8cff;--glow:rgba(60,145,255,.25)}
+body[data-project="services"]{--cyan:#67e8f9;--blue:#3b82f6;--violet:#818cf8;--glow:rgba(59,130,246,.25)}
+body[data-project="freelance"]{--cyan:#8ee7c4;--blue:#4c9aff;--violet:#9b8cff;--glow:rgba(76,154,255,.22)}
+body[data-project="social"]{--cyan:#f0abfc;--blue:#818cf8;--violet:#c084fc;--glow:rgba(192,132,252,.23)}
