@@ -46,3 +46,22 @@ footer { padding: 28px; text-align: center; color: var(--muted); border-top: 1px
   .site-header { align-items: flex-start; gap: 14px; flex-direction: column; }
   .hero { padding-top: 70px; }
 }
+
+.project-card {
+  display: block;
+  padding: 22px;
+  border: 1px solid #ffffff20;
+  border-radius: 18px;
+  background: var(--panel);
+  text-decoration: none;
+  transition: transform .18s ease, border-color .18s ease;
+}
+.project-card:hover, .project-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  outline: none;
+}
+.project-card h3 { margin: 0 0 10px; }
+.project-card p { color: var(--muted); margin: 0 0 18px; }
+.project-card span { color: var(--accent); font-weight: 750; }
+.project-hero { padding-bottom: 55px; }
