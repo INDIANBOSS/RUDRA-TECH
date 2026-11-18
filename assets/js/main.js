@@ -33,6 +33,59 @@
     });
   });
 
+  // Per-project workflow tracker: browser-local checklist and progress.
+  const workflowPlans = {
+    security: {name:"Hack With Rudra", tasks:["Prepare the next IT support lesson","Add a practical networking exercise","Review safety and authorization notes","Test every learning link on mobile"]},
+    services: {name:"Working With Rudra", tasks:["Add verified service area and contact details","Prepare service request intake fields","Add computer and CCTV service checklists","Test the enquiry journey on mobile"]},
+    baby: {name:"Baby With Ved", tasks:["Finalize Episode 002 lyrics and storyboard","Generate consistent Ved and Pip character references","Create original vocals and music","Edit, caption, and upload the finished episode"]},
+    freelance: {name:"Freelance Work", tasks:["Prepare two spreadsheet sample projects","Add a desktop support case study","Add verified freelancer profile links","Create a client-ready delivery checklist"]},
+    social: {name:"Social Media Management", tasks:["Choose the first channel and audience","Prepare seven days of original content","Review captions, rights, and thumbnails","Record post links and weekly performance"]},
+    hub: {name:"RUDRA AI HUB", tasks:["Verify selected-agent routing","Test Research, Content, Creative, Media, Builder and Review agents","Add timeout and friendly error handling","Run a mobile production smoke test"]}
+  };
+  if (project !== "hub") {
+    const plan = workflowPlans[project];
+    const hero = document.querySelector("main .hero");
+    if (plan && hero && !document.getElementById("project-workflow")) {
+      const panel = document.createElement("section");
+      panel.id = "project-workflow";
+      panel.className = "section project-workflow";
+      panel.setAttribute("aria-labelledby", "project-workflow-title");
+      const eyebrow = document.createElement("p"); eyebrow.className = "eyebrow"; eyebrow.textContent = "YOUR PROJECT · LOCAL PROGRESS";
+      const heading = document.createElement("h2"); heading.id = "project-workflow-title"; heading.textContent = "Next actions — " + plan.name;
+      const intro = document.createElement("p"); intro.className = "workflow-intro"; intro.textContent = "Tick off each milestone as you work. Progress is saved in this browser on this device.";
+      const progressWrap = document.createElement("div"); progressWrap.className = "project-progress";
+      const progress = document.createElement("div"); progress.className = "project-progress-fill";
+      const progressLabel = document.createElement("span"); progressLabel.className = "project-progress-label";
+      const items = document.createElement("div"); items.className = "project-checklist";
+      const key = "rudra-project-progress-v1-" + project;
+      let done = [];
+      try { const saved = JSON.parse(localStorage.getItem(key) || "[]"); if (Array.isArray(saved)) done = saved.filter(n => Number.isInteger(n) && n >= 0 && n < plan.tasks.length); } catch (_) {}
+      const renderProgress = () => {
+        const pct = Math.round(done.length / plan.tasks.length * 100);
+        progress.style.width = pct + "%";
+        progressWrap.setAttribute("aria-valuenow", String(pct));
+        progressLabel.textContent = done.length + " of " + plan.tasks.length + " milestones complete · " + pct + "%";
+      };
+      progressWrap.setAttribute("role", "progressbar"); progressWrap.setAttribute("aria-valuemin", "0"); progressWrap.setAttribute("aria-valuemax", "100"); progressWrap.append(progress);
+      plan.tasks.forEach((task, index) => {
+        const label = document.createElement("label"); label.className = "project-check-item";
+        const input = document.createElement("input"); input.type = "checkbox"; input.checked = done.includes(index);
+        const text = document.createElement("span"); text.textContent = task;
+        if (input.checked) label.classList.add("is-done");
+        input.addEventListener("change", () => {
+          done = input.checked ? [...new Set([...done, index])] : done.filter(n => n !== index);
+          label.classList.toggle("is-done", input.checked);
+          try { localStorage.setItem(key, JSON.stringify(done)); } catch (_) { progressLabel.textContent = "Browser storage unavailable"; }
+          renderProgress();
+        });
+        label.append(input, text); items.append(label);
+      });
+      panel.append(eyebrow, heading, intro, progressWrap, progressLabel, items);
+      hero.insertAdjacentElement("afterend", panel);
+      renderProgress();
+    }
+  }
+
   // Private, browser-local task list. No task data is sent to a server.
   const list = document.getElementById("task-list");
   if (!list) return;
