@@ -118,3 +118,16 @@ body[data-project="social"]{--cyan:#f0abfc;--blue:#818cf8;--violet:#c084fc;--glo
 .task-delete{border:1px solid rgba(255,130,140,.25);border-radius:9px;background:rgba(255,100,120,.08);color:#ffb4bd;padding:7px 10px;cursor:pointer}
 .task-empty{padding:18px;border:1px dashed var(--line);border-radius:13px;color:var(--muted);text-align:center}
 @media(max-width:700px){.task-controls{grid-template-columns:1fr}.task-add{width:100%}}
+
+/* Per-project milestone tracker */
+.project-workflow{margin:0 0 18px;padding:22px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(140deg,rgba(20,39,69,.78),rgba(9,18,34,.78))}
+.project-workflow h2{font-size:clamp(1.45rem,3vw,2rem);margin:7px 0 12px}
+.project-progress{height:10px;overflow:hidden;border-radius:99px;background:rgba(139,177,255,.14);border:1px solid var(--line);margin:18px 0 8px}
+.project-progress-fill{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--violet));transition:width .25s ease}
+.project-progress-label{display:block;color:var(--muted);font-size:.82rem;margin-bottom:14px}
+.project-checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.project-check-item{display:flex;align-items:flex-start;gap:11px;padding:13px;border:1px solid var(--line);border-radius:12px;background:rgba(6,14,27,.5);color:var(--text);cursor:pointer}
+.project-check-item input{width:18px;height:18px;flex:0 0 18px;margin:2px 0 0;accent-color:var(--cyan)}
+.project-check-item span{font-size:.9rem;line-height:1.4}
+.project-check-item.is-done span{color:var(--muted);text-decoration:line-through}
+@media(max-width:700px){.project-workflow{padding:18px}.project-checklist{grid-template-columns:1fr}}
