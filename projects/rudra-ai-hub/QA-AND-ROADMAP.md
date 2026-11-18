@@ -32,6 +32,13 @@
 4. Use free-tier models and services unless the owner explicitly approves a change.
 5. Ask for approval before any paid upgrade, account change, or destructive action.
 
+## Website portfolio design rollout
+- [x] Apply shared premium dark dashboard styling to RUDRA-TECH home and project pages.
+- [x] Add a dedicated RUDRA AI HUB launch card to the main portfolio.
+- [x] Add per-project accent colors and responsive mobile navigation.
+- [ ] Verify the GitHub Pages workflow and live visual rendering on desktop and mobile.
+- [ ] Inspect the separate Hackwithrudra repository before changing its independent site, if it contains additional pages.
+
 ## Next engineering tasks
 1. Inspect the full current frontend and API source before editing.
 2. Trace the selected-agent value from the UI to the API request.
