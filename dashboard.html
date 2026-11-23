@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080b15">
+<title>RudraAI Command Center</title>
+<style>
+:root{--bg:#080b15;--card:#12182a;--card2:#171f35;--text:#f3f5ff;--muted:#9da8c4;--accent:#8b5cf6;--blue:#4c8dff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#18203d 0,#080b15 48%);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,sans-serif}
+header{position:sticky;top:0;z-index:2;background:#080b15e8;backdrop-filter:blur(14px);border-bottom:1px solid #252e48;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-weight:850;letter-spacing:.5px;background:linear-gradient(90deg,#b794ff,#69aaff);background-clip:text;color:transparent;font-size:19px}
+header a{color:#aeb9d4;text-decoration:none;font-size:13px}
+main{max-width:1050px;margin:auto;padding:22px 16px 60px}.hero{border:1px solid #2c3657;background:linear-gradient(130deg,#1b2140,#12172b 60%,#12233c);padding:28px 22px;border-radius:24px}
+.eyebrow{color:#a994ff;font-size:11px;font-weight:800;letter-spacing:1.8px}.hero h1{font-size:clamp(32px,8vw,56px);line-height:1.05;margin:12px 0}.hero h1 span{background:linear-gradient(90deg,#b48bff,#69b2ff);background-clip:text;color:transparent}.hero p{color:#b4bfd9;line-height:1.65;max-width:680px}.btn{display:inline-block;margin-top:12px;background:linear-gradient(110deg,#7545ed,#3976f7);padding:12px 16px;border-radius:12px;color:white;text-decoration:none;font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}.stat{background:var(--card);padding:16px 10px;text-align:center;border:1px solid #222c45;border-radius:16px}.stat b{font-size:22px;color:#a992ff}.stat small{display:block;color:var(--muted);margin-top:3px}
+section{margin-top:32px}h2{font-size:22px;margin:8px 0 6px}.desc{color:var(--muted);margin:0 0 15px}.search{width:100%;background:#101729;border:1px solid #2b3551;color:white;padding:14px;border-radius:12px;margin:8px 0 15px;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{background:var(--card);border:1px solid #222d48;padding:16px;border-radius:16px;text-decoration:none;color:inherit;transition:.15s}.card:hover{background:var(--card2);border-color:#7159ce;transform:translateY(-2px)}.icon{font-size:23px}.card h3{margin:9px 0 6px;font-size:16px}.card p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.open{display:block;margin-top:12px;color:#a996ff;font-size:12px;font-weight:700}
+.tasks{background:var(--card);border:1px solid #26314c;border-radius:16px;padding:16px}.tasks input,.tasks select{width:100%;margin:6px 0 10px;padding:12px;background:#0c1220;color:white;border:1px solid #29334d;border-radius:10px}.tasks button{padding:11px 14px;border:0;border-radius:10px;background:linear-gradient(110deg,#7446eb,#3976f5);color:white;font-weight:700}.task{padding:12px;margin-top:10px;background:#0d1424;border-radius:12px;display:flex;gap:10px;align-items:flex-start}.task.done{text-decoration:line-through;color:#8b96ad}.task small{display:block;color:var(--muted);margin-top:4px}footer{text-align:center;color:#65718d;padding:35px 10px;font-size:12px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{padding:40px}.stats{gap:14px}}
+</style>
+</head>
+<body>
+<header><a class="brand" href="./">RudraAI ⚡</a><a href="#projects">Projects</a></header>
+<main>
+<div class="hero"><div class="eyebrow">PERSONAL AI & DIGITAL WORKSPACE</div><h1>Welcome to<br><span>RudraAI Command Center</span></h1><p>One mobile-friendly place to launch your tools, organize projects, and turn ideas into finished work. Built for Android.</p><a class="btn" href="#tools">Explore workspace ↓</a></div>
+<div class="stats"><div class="stat"><b>AI</b><small>Creative tools</small></div><div class="stat"><b>6</b><small>Projects</small></div><div class="stat"><b>24/7</b><small>Digital workspace</small></div></div>
+<section id="tools"><div class="eyebrow">TOOLKIT</div><h2>AI Tools Hub</h2><p class="desc">Tap a card to open a tool.</p><input class="search" id="search" placeholder="🔎 Search AI tools…" aria-label="Search AI tools"><div class="grid" id="toolGrid">
+<a class="card" data-name="elevenlabs voice audio song narration" href="https://elevenlabs.io/"><span class="icon">🎙️</span><h3>ElevenLabs</h3><p>AI voices, narration, sound and music.</p><span class="open">Open tool ↗</span></a>
+<a class="card" data-name="canva graphic design thumbnail" href="https://www.canva.com/"><span class="icon">🎨</span><h3>Canva</h3><p>Thumbnails, posters, graphics and social posts.</p><span class="open">Open tool ↗</span></a>
+<a class="card" data-name="figma ui ux design" href="https://www.figma.com/"><span class="icon">🖌️</span><h3>Figma</h3><p>UI design, prototypes and website planning.</p><span class="open">Open tool ↗</span></a>
+<a class="card" data-name="github code repository hosting" href="https://github.com/INDIANBOSS"><span class="icon">💻</span><h3>GitHub</h3><p>Code, repositories, project files and Pages.</p><span class="open">Open tool ↗</span></a>
+<a class="card" data-name="vercel deploy website" href="https://vercel.com/"><span class="icon">▲</span><h3>Vercel</h3><p>Deploy websites and web applications.</p><span class="open">Open tool ↗</span></a>
+<a class="card" data-name="google flow video filmmaking" href="https://labs.google/fx/"><span class="icon">🎬</span><h3>Google Flow</h3><p>AI cinematic scenes and video creation.</p><span class="open">Open tool ↗</span></a>
+<a class="card" data-name="higgsfield ai cinematic image video" href="https://higgsfield.ai/"><span class="icon">✨</span><h3>Higgsfield</h3><p>AI images, motion and cinematic video.</p><span class="open">Open tool ↗</span></a>
+<a class="card" data-name="invideo video editing shorts" href="https://invideo.io/"><span class="icon">🎞️</span><h3>InVideo</h3><p>Video creation, editing and social content.</p><span class="open">Open tool ↗</span></a>
+<a class="card" data-name="synthesia avatar presenter" href="https://www.synthesia.io/"><span class="icon">🗣️</span><h3>Synthesia</h3><p>Presenter videos and AI avatars.</p><span class="open">Open tool ↗</span></a>
+<a class="card" data-name="runcomfy workflow image generation" href="https://www.runcomfy.com/"><span class="icon">⚙️</span><h3>RunComfy</h3><p>AI workflows and creative pipelines.</p><span class="open">Open tool ↗</span></a>
+<a class="card" data-name="n8n automation workflow apps" href="https://n8n.io/"><span class="icon">🔁</span><h3>n8n</h3><p>Connect apps and automate repeat tasks.</p><span class="open">Open tool ↗</span></a>
+<a class="card" data-name="chatgpt assistant research" href="https://chatgpt.com/"><span class="icon">🤖</span><h3>ChatGPT</h3><p>Ideas, planning, research and productivity.</p><span class="open">Open tool ↗</span></a>
+</div></section>
+<section id="projects"><div class="eyebrow">YOUR ECOSYSTEM</div><h2>Projects & Workspaces</h2><p class="desc">Open your project space or start from the main website.</p><div class="grid">
+<a class="card" href="https://github.com/INDIANBOSS/RUDRA-TECH"><span class="icon">🌐</span><h3>RUDRA-TECH</h3><p>Main digital workspace, services and project collection.</p><span class="open">Open project ↗</span></a>
+<a class="card" href="https://github.com/INDIANBOSS/Hackwithrudra"><span class="icon">🛡️</span><h3>Hack With Rudra</h3><p>Responsible cybersecurity and tech learning.</p><span class="open">Open repository ↗</span></a>
+<a class="card" href="https://github.com/INDIANBOSS/RUDRA-TECH/tree/main/projects/baby-with-ved"><span class="icon">🧸</span><h3>Baby With Ved</h3><p>Original rhymes, stories and episodes.</p><span class="open">Open project files ↗</span></a>
+<a class="card" href="https://github.com/INDIANBOSS/RUDRA-TECH/tree/main/projects/working-with-rudra"><span class="icon">🧰</span><h3>Working With Rudra</h3><p>IT support, repairs, CCTV and service solutions.</p><span class="open">Open project files ↗</span></a>
+<a class="card" href="https://github.com/INDIANBOSS/RUDRA-TECH/tree/main/projects/freelance"><span class="icon">💼</span><h3>Freelance Work</h3><p>IT support, spreadsheets and service portfolio.</p><span class="open">Open project files ↗</span></a>
+<a class="card" href="https://github.com/INDIANBOSS/RUDRA-TECH/tree/main/projects/social-media"><span class="icon">📱</span><h3>Social Media Manager</h3><p>Content planning and growth workspace.</p><span class="open">Open project files ↗</span></a>
+</div></section>
+<section id="tasks"><div class="eyebrow">QUICK TASKS · LOCAL ON THIS DEVICE</div><h2>Task Pad</h2><p class="desc">Tasks are saved in this browser on this device. This is not cloud sync.</p><div class="tasks"><input id="taskInput" maxlength="120" placeholder="Enter a task…"><select id="project"><option>RudraAI</option><option>Baby With Ved</option><option>Hack With Rudra</option><option>Working With Rudra</option><option>Freelance</option><option>Social Media</option></select><button id="add">Add task</button><div id="taskList"></div></div></section>
+<footer>© <span id="year"></span> RudraAI · Mobile-first command center</footer>
+</main>
+<script>
+const toolCards=[...document.querySelectorAll('#toolGrid .card')];document.querySelector('#search').addEventListener('input',e=>{const q=e.target.value.toLowerCase();toolCards.forEach(c=>c.hidden=!c.dataset.name.includes(q)&&!c.innerText.toLowerCase().includes(q))});
+const input=document.querySelector('#taskInput'),project=document.querySelector('#project'),list=document.querySelector('#taskList');let tasks=[];try{tasks=JSON.parse(localStorage.getItem('rudraai_tasks')||'[]')}catch(e){tasks=[]}
+function save(){localStorage.setItem('rudraai_tasks',JSON.stringify(tasks));render()}function render(){list.innerHTML='';tasks.forEach((t,i)=>{const row=document.createElement('div');row.className='task'+(t.done?' done':'');const check=document.createElement('input');check.type='checkbox';check.checked=t.done;check.onchange=()=>{tasks[i].done=check.checked;save()};const label=document.createElement('div');label.textContent=t.title;const meta=document.createElement('small');meta.textContent=t.project;label.append(meta);const del=document.createElement('button');del.textContent='×';del.style.marginLeft='auto';del.onclick=()=>{tasks.splice(i,1);save()};row.append(check,label,del);list.append(row)})}document.querySelector('#add').onclick=()=>{const title=input.value.trim();if(!title)return;tasks.unshift({title,project:project.value,done:false});input.value='';save()};input.addEventListener('keydown',e=>{if(e.key==='Enter')document.querySelector('#add').click()});document.querySelector('#year').textContent=new Date().getFullYear();render();
+</script>
+</body></html>
